@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    container_name: neptune-app
+    ports:
+      - 3000:3000
+    environment:
+      - HOST=0.0.0.0
+    network_mode: host
+    volumes:
+      - .:/home/node/app
+
+  neptune:
+    image: alpine:3.17
+    container_name: neptune-tunnel
+    command: >    
+      sh -c "apk add openssh-client &&
+      cd /home &&
+      ssh -N -L \
+      8182:encore-fan-development-instance-1.cubaxtzqr1qf.us-east-2.neptune.amazonaws.com:8182 \
+      ubuntu@192.0.138.9 \
+      -i /home/encore_main.pem &
+      tail -f /dev/null"
+    volumes:
+      - .:/home

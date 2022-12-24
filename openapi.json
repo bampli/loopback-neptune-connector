@@ -1,0 +1,3199 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "neptune",
+    "version": "0.0.1",
+    "description": "Neptune Connector Test",
+    "contact": {
+      "name": "Wesley Milan"
+    }
+  },
+  "paths": {
+    "/follows/count": {
+      "get": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "count",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Follow model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Follow.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Follow>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FollowController.count"
+      }
+    },
+    "/follows/{id}": {
+      "put": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Follow PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Follow"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "FollowController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Follow PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FollowPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "FollowController.updateById"
+      },
+      "get": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "findById",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Follow model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FollowWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Follow.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FollowController.findById"
+      },
+      "delete": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Follow DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "FollowController.deleteById"
+      }
+    },
+    "/follows": {
+      "post": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "create",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Follow model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Follow"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewFollow"
+              }
+            }
+          }
+        },
+        "operationId": "FollowController.create"
+      },
+      "patch": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Follow PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Follow.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Follow>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FollowPartial"
+              }
+            }
+          }
+        },
+        "operationId": "FollowController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "FollowController",
+        "x-operation-name": "find",
+        "tags": [
+          "FollowController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Follow model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FollowWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Follow.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FollowController.find"
+      }
+    },
+    "/pages/count": {
+      "get": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "count",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Page model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Page.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Page>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PageController.count"
+      }
+    },
+    "/pages/{id}": {
+      "put": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Page PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Page"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PageController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Page PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PageController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Page model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PageController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Page DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PageController.deleteById"
+      }
+    },
+    "/pages": {
+      "post": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "create",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Page model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPage"
+              }
+            }
+          }
+        },
+        "operationId": "PageController.create"
+      },
+      "patch": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Page PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Page.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Page>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagePartial"
+              }
+            }
+          }
+        },
+        "operationId": "PageController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PageController",
+        "x-operation-name": "find",
+        "tags": [
+          "PageController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Page model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PageWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PageController.find"
+      }
+    },
+    "/people/bytecode-followers-greater-than": {
+      "get": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "findFollowerGreaterThanAgeBytecode",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get followers by age",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "age",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "PeopleController.findFollowerGreaterThanAgeBytecode"
+      }
+    },
+    "/people/count": {
+      "get": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "count",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "People model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "People.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<People>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PeopleController.count"
+      }
+    },
+    "/people/followers": {
+      "get": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "findFollowers",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get followers from user ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "PeopleController.findFollowers"
+      }
+    },
+    "/people/many": {
+      "post": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "createMany",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "People model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/People"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchPeople"
+              }
+            }
+          }
+        },
+        "operationId": "PeopleController.createMany"
+      }
+    },
+    "/people/promise-followers-greater-than": {
+      "get": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "findFollowerGreaterThanAgePromise",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get followers by age",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "age",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "PeopleController.findFollowerGreaterThanAgePromise"
+      }
+    },
+    "/people/save/{id}": {
+      "put": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "replaceByIdUsingSave",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Update People Using Save success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/People"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PeopleController.replaceByIdUsingSave"
+      }
+    },
+    "/people/{id}": {
+      "put": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "People PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/People"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PeopleController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "People PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PeoplePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PeopleController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "People model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PeopleWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/People.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PeopleController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "People DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PeopleController.deleteById"
+      }
+    },
+    "/people": {
+      "post": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "create",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "People model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/People"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPeople"
+              }
+            }
+          }
+        },
+        "operationId": "PeopleController.create"
+      },
+      "patch": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "People PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "People.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<People>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PeoplePartial"
+              }
+            }
+          }
+        },
+        "operationId": "PeopleController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PeopleController",
+        "x-operation-name": "find",
+        "tags": [
+          "PeopleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of People model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PeopleWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/People.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PeopleController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/post-owners/count": {
+      "get": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "count",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "PostOwner model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "PostOwner.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<PostOwner>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PostOwnerController.count"
+      }
+    },
+    "/post-owners/{id}": {
+      "put": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "PostOwner PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostOwner"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PostOwnerController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "PostOwner PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostOwnerPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PostOwnerController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "PostOwner model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOwnerWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOwner.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PostOwnerController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "PostOwner DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PostOwnerController.deleteById"
+      }
+    },
+    "/post-owners": {
+      "post": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "create",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "PostOwner model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOwner"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPostOwner"
+              }
+            }
+          }
+        },
+        "operationId": "PostOwnerController.create"
+      },
+      "patch": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "PostOwner PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "PostOwner.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<PostOwner>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostOwnerPartial"
+              }
+            }
+          }
+        },
+        "operationId": "PostOwnerController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PostOwnerController",
+        "x-operation-name": "find",
+        "tags": [
+          "PostOwnerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of PostOwner model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PostOwnerWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOwner.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PostOwnerController.find"
+      }
+    },
+    "/posts/by-user/{id}": {
+      "get": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "getPostsByUser",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Posts By User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PostController.getPostsByUser"
+      }
+    },
+    "/posts/count": {
+      "get": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "count",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Post model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Post.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Post>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PostController.count"
+      }
+    },
+    "/posts/related": {
+      "post": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "createWithRelations",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Post model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPosts"
+              }
+            }
+          }
+        },
+        "operationId": "PostController.createWithRelations"
+      }
+    },
+    "/posts/{id}": {
+      "put": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Post PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PostController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Post PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PostController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Post model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PostController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Post DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PostController.deleteById"
+      }
+    },
+    "/posts": {
+      "post": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "create",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Post model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPost"
+              }
+            }
+          }
+        },
+        "operationId": "PostController.create"
+      },
+      "patch": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Post PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Post.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Post>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostPartial"
+              }
+            }
+          }
+        },
+        "operationId": "PostController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PostController",
+        "x-operation-name": "find",
+        "tags": [
+          "PostController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Post model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PostWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PostController.find"
+      }
+    },
+    "/test-helper/cleanup-db": {
+      "get": {
+        "x-controller-name": "TestHelperController",
+        "x-operation-name": "cleanupDb",
+        "tags": [
+          "TestHelperController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cleanup DB"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "TestHelperController.cleanupDb"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Follow": {
+        "title": "Follow",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "notification": {
+            "type": "boolean"
+          },
+          "follower": {
+            "type": "string"
+          },
+          "followee": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "follower",
+          "followee",
+          "createdAt"
+        ],
+        "additionalProperties": false
+      },
+      "NewFollow": {
+        "title": "NewFollow",
+        "type": "object",
+        "description": "(tsType: Omit<Follow, 'id'>, schemaOptions: { title: 'NewFollow', exclude: [ 'id' ] })",
+        "properties": {
+          "notification": {
+            "type": "boolean"
+          },
+          "follower": {
+            "type": "string"
+          },
+          "followee": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "follower",
+          "followee",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Follow, 'id'>"
+      },
+      "FollowWithRelations": {
+        "title": "FollowWithRelations",
+        "type": "object",
+        "description": "(tsType: FollowWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "notification": {
+            "type": "boolean"
+          },
+          "follower": {
+            "type": "string"
+          },
+          "followee": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "follower",
+          "followee",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "FollowWithRelations"
+      },
+      "FollowPartial": {
+        "title": "FollowPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Follow>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "notification": {
+            "type": "boolean"
+          },
+          "follower": {
+            "type": "string"
+          },
+          "followee": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Follow>"
+      },
+      "Page": {
+        "title": "Page",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "location",
+          "categories",
+          "createdAt"
+        ],
+        "additionalProperties": false
+      },
+      "NewPage": {
+        "title": "NewPage",
+        "type": "object",
+        "description": "(tsType: Omit<Page, 'id'>, schemaOptions: { title: 'NewPage', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "location",
+          "categories",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Page, 'id'>"
+      },
+      "PageWithRelations": {
+        "title": "PageWithRelations",
+        "type": "object",
+        "description": "(tsType: PageWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "location",
+          "categories",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "PageWithRelations"
+      },
+      "PagePartial": {
+        "title": "PagePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Page>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Page>"
+      },
+      "People": {
+        "title": "People",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "collection": {
+            "type": "object"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "status",
+          "createdAt"
+        ],
+        "additionalProperties": false
+      },
+      "NewPeople": {
+        "title": "NewPeople",
+        "type": "object",
+        "description": "New people creation",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "collection": {
+            "type": "object"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BatchPeople": {
+        "title": "BatchPeople",
+        "description": "Batch people creation",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "age": {
+              "type": "number"
+            },
+            "interests": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "collection": {
+              "type": "object"
+            },
+            "status": {
+              "type": "boolean"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      "PeopleWithRelations": {
+        "title": "PeopleWithRelations",
+        "type": "object",
+        "description": "(tsType: PeopleWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "collection": {
+            "type": "object"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "status",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "PeopleWithRelations"
+      },
+      "PeoplePartial": {
+        "title": "PeoplePartial",
+        "type": "object",
+        "description": "(tsType: Partial<People>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "collection": {
+            "type": "object"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<People>"
+      },
+      "PostOwner": {
+        "title": "PostOwner",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "post": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "post"
+        ],
+        "additionalProperties": false
+      },
+      "NewPostOwner": {
+        "title": "NewPostOwner",
+        "type": "object",
+        "description": "(tsType: Omit<PostOwner, 'id'>, schemaOptions: { title: 'NewPostOwner', exclude: [ 'id' ] })",
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "post": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "post"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<PostOwner, 'id'>"
+      },
+      "PostOwnerWithRelations": {
+        "title": "PostOwnerWithRelations",
+        "type": "object",
+        "description": "(tsType: PostOwnerWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "post": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "post"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "PostOwnerWithRelations"
+      },
+      "PostOwnerPartial": {
+        "title": "PostOwnerPartial",
+        "type": "object",
+        "description": "(tsType: Partial<PostOwner>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "post": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<PostOwner>"
+      },
+      "Post": {
+        "title": "Post",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "content",
+          "createdAt"
+        ],
+        "additionalProperties": false
+      },
+      "NewPost": {
+        "title": "NewPost",
+        "type": "object",
+        "description": "(tsType: Omit<Post, 'id'>, schemaOptions: { title: 'NewPost', exclude: [ 'id' ] })",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "content",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Post, 'id'>"
+      },
+      "PostWithRelations": {
+        "title": "PostWithRelations",
+        "type": "object",
+        "description": "(tsType: PostWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "content",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "PostWithRelations"
+      },
+      "PostPartial": {
+        "title": "PostPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Post>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Post>"
+      },
+      "NewPosts": {
+        "title": "NewPosts",
+        "type": "object",
+        "description": "New post creation",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Follow.Filter": {
+        "type": "object",
+        "title": "Follow.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "notification": {
+                    "type": "boolean"
+                  },
+                  "follower": {
+                    "type": "boolean"
+                  },
+                  "followee": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "notification",
+                    "follower",
+                    "followee",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Follow.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Follow>"
+      },
+      "Follow.Filter1": {
+        "type": "object",
+        "title": "Follow.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Follow.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "notification": {
+                    "type": "boolean"
+                  },
+                  "follower": {
+                    "type": "boolean"
+                  },
+                  "followee": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "notification",
+                    "follower",
+                    "followee",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Follow.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Follow>"
+      },
+      "Page.Filter": {
+        "type": "object",
+        "title": "Page.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "location": {
+                    "type": "boolean"
+                  },
+                  "categories": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "location",
+                    "categories",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Page.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Page>"
+      },
+      "Page.Filter1": {
+        "type": "object",
+        "title": "Page.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Page.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "location": {
+                    "type": "boolean"
+                  },
+                  "categories": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "location",
+                    "categories",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Page.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Page>"
+      },
+      "People.Filter": {
+        "type": "object",
+        "title": "People.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "age": {
+                    "type": "boolean"
+                  },
+                  "interests": {
+                    "type": "boolean"
+                  },
+                  "collection": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "age",
+                    "interests",
+                    "collection",
+                    "status",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "People.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<People>"
+      },
+      "People.Filter1": {
+        "type": "object",
+        "title": "People.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "People.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "age": {
+                    "type": "boolean"
+                  },
+                  "interests": {
+                    "type": "boolean"
+                  },
+                  "collection": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "age",
+                    "interests",
+                    "collection",
+                    "status",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "People.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<People>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "PostOwner.Filter": {
+        "type": "object",
+        "title": "PostOwner.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "owner": {
+                    "type": "boolean"
+                  },
+                  "post": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "owner",
+                    "post"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "PostOwner.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<PostOwner>"
+      },
+      "PostOwner.Filter1": {
+        "type": "object",
+        "title": "PostOwner.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "PostOwner.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "owner": {
+                    "type": "boolean"
+                  },
+                  "post": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "owner",
+                    "post"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "PostOwner.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<PostOwner>"
+      },
+      "Post.Filter": {
+        "type": "object",
+        "title": "Post.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "content",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Post.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Post>"
+      },
+      "Post.Filter1": {
+        "type": "object",
+        "title": "Post.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Post.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "content",
+                    "createdAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Post.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Post>"
+      }
+    }
+  }
+}
