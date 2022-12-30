@@ -12,5 +12,5 @@ cd /home/node/app
 
 npm install
 
-#tail -f /dev/null
-npm start
+tail -f /dev/null
+#npm start
