@@ -2,11 +2,11 @@
 
 ## Get started
 
-To run the app you should clone the repo, provide your own `encore_main.pem` file, and run `docker-compose up`. This launches an app connected to Encore's Neptune development  DB. Following are step by step details:
+To run the app you should clone the repo, provide your own `encore_main.pem` file, and run `docker-compose up`. This launches an app connected to Neptune  DB. Following are step by step details:
 
 ```shell
 # Clone the repo
-git clone git@github.com:CrypTixEncore/loopback-neptune-connector.git
+git clone git@github.com:bampli/loopback-neptune-connector.git
 cd loopback-neptune-connector
 
 # Add your own encore_main.pem file
