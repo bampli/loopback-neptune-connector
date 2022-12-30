@@ -9,8 +9,8 @@ To run the app you should clone the repo, provide your own `encore_main.pem` fil
 git clone git@github.com:bampli/loopback-neptune-connector.git
 cd loopback-neptune-connector
 
-# Add your own encore_main.pem file
-cp ~/.ssh/encore_main.pem .
+# Add your own aauthentication file
+cp ~/.ssh/main.pem .
 
 # Launch the App
 docker-compose up
