@@ -12,7 +12,7 @@ import supertest from 'supertest';
 export async function setupApplication(): Promise<AppWithClient> {
   const restConfig = givenHttpServerConfig({
     // Customize the server configuration here.
-    host: process.env.API_HOST,
+    // host: process.env.API_HOST,
     // port: +process.env.API_PORT,
     port: 9000,
     // openApiSpec: {
@@ -32,7 +32,7 @@ export async function setupApplication(): Promise<AppWithClient> {
 
   await app.boot();
 
-  //app.bind('datasources.neptune').to(testDb);
+  app.bind('datasources.neptune').to(testDb);
 
   await app.start();
 
