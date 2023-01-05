@@ -38,7 +38,13 @@ export class NeptuneApplication extends BootMixin(
       controllers: {
         // Customize ControllerBooter Conventions here
         dirs: ['controllers'],
-        extensions: ['.controller.js'],
+        extensions: ['.controller.js', '.controller.ts'],
+        nested: true,
+      },
+      repositories: {
+        // Customize RepositoryBooter Conventions here
+        dirs: ['repositories'],
+        extensions: ['.repository.js', '.repository.ts'],
         nested: true,
       },
     };
